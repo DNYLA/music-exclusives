@@ -23,7 +23,6 @@ export default function RootLayout({
       <body className="flex gap-6">
         <Sidebar3 />
         {/* <Sidebar /> */}
-        <Sidebar2 />
         {children}
       </body>
     </html>
