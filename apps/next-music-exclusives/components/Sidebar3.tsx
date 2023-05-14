@@ -21,6 +21,8 @@ const Sidebar3 = () => {
     { name: 'Setting', link: '/', icon: RiSettings4Line },
   ];
 
+  const [active, setActive] = useState('Tickets');
+
   const [open, setOpen] = useState(true);
   return (
     <div
@@ -57,7 +59,12 @@ const Sidebar3 = () => {
               key={i}
               className={`${
                 item.margin && 'mt-5'
-              } flex items-center w-full h-12 px-3 mt-2 rounded hover:bg-gray-700 hover:text-gray-300`}
+              } flex items-center w-full h-12 px-3 mt-2 rounded ${
+                item.name === active
+                  ? 'bg-gray-700'
+                  : 'hover:bg-gray-700 hover:text-gray-300'
+              }`}
+              onClick={() => setActive(item.name)}
             >
               <div>{React.createElement(item.icon, { size: '20' })}</div>
               <span
