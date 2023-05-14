@@ -50,8 +50,8 @@
     },
     "@nx/next": {
       "application": {
-        "style": "@emotion/styled",
-        "linter": "eslint"
+        "linter": "eslint",
+        "style": "scss"
       }
     }
   }
