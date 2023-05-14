@@ -1,9 +1,7 @@
 // import Navbar from 'apps/next-music-exclusives/components/navbar';
 import './global.css';
 // import Sidebar from 'apps/next-music-exclusives/components/sidebar';
-import Sidebar2 from '../components/sidebar2';
-import Navbar from 'apps/next-music-exclusives/components/navbar';
-import Sidebar3 from 'apps/next-music-exclusives/components/Sidebar3';
+import Sidebar3 from '../components/Sidebar3';
 
 export const metadata = {
   title: 'Nx Next App',
