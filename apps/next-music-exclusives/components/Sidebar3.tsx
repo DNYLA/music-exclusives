@@ -2,10 +2,15 @@
 import React, { useState } from 'react';
 import { MdOutlineDashboard, MdOutlineLibraryMusic } from 'react-icons/md';
 import { RiSettings4Line, RiVipDiamondLine } from 'react-icons/ri';
-import { BsQuestionLg } from 'react-icons/bs';
+import {
+  BsFileMusicFill,
+  BsFillFileMusicFill,
+  BsQuestionLg,
+} from 'react-icons/bs';
 import { FaRegNewspaper, FaRegUserCircle } from 'react-icons/fa';
 import { AiOutlineUser } from 'react-icons/ai';
 import { FiMessageSquare } from 'react-icons/fi';
+import { IoIosMusicalNotes, IoMdMusicalNotes } from 'react-icons/io';
 import Link from 'next/link';
 
 // export default function Sidebar3() {
@@ -28,7 +33,7 @@ const Sidebar3 = () => {
     <div
       className={`flex flex-col items-center h-screen ${
         open ? 'w-40' : 'w-16'
-      } duration-500 h-full overflow-hidden text-gray-400 bg-gray-900`}
+      } duration-500 h-full overflow-hidden text-gray-400 bg-me-secondary`}
     >
       <a
         className={`flex items-center ${
@@ -37,14 +42,9 @@ const Sidebar3 = () => {
         href="#"
         onClick={() => setOpen(!open)}
       >
-        <svg
-          className="w-8 h-8 fill-current"
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 20 20"
-          fill="currentColor"
-        >
-          <path d="M11 17a1 1 0 001.447.894l4-2A1 1 0 0017 15V9.236a1 1 0 00-1.447-.894l-4 2a1 1 0 00-.553.894V17zM15.211 6.276a1 1 0 000-1.788l-4.764-2.382a1 1 0 00-.894 0L4.789 4.488a1 1 0 000 1.788l4.764 2.382a1 1 0 00.894 0l4.764-2.382zM4.447 8.342A1 1 0 003 9.236V15a1 1 0 00.553.894l4 2A1 1 0 009 17v-5.764a1 1 0 00-.553-.894l-4-2z" />
-        </svg>
+        {/* <BsFileMusicFill size={30} /> */}
+        {/* <IoIosMusicalNotes size={30} /> */}
+        <IoMdMusicalNotes size={30} />
         {open && (
           <span className="ml-2 text-sm font-bold">
             {process.env.NEXT_PUBLIC_PROJECT_TITLE}
@@ -57,12 +57,12 @@ const Sidebar3 = () => {
             <Link
               href={item.link}
               key={i}
-              className={`${
+              className={` ${
                 item.margin && 'mt-5'
-              } flex items-center w-full h-12 px-3 mt-2 rounded ${
+              } flex items-center  w-full h-12 px-3 mt-2 rounded ${
                 item.name === active
                   ? 'bg-gray-700'
-                  : 'hover:bg-gray-700 hover:text-gray-300'
+                  : 'hover:bg-me-accent hover:text-gray-300'
               }`}
               onClick={() => setActive(item.name)}
             >

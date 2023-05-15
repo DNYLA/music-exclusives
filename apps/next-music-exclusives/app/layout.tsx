@@ -1,7 +1,6 @@
 // import Navbar from 'apps/next-music-exclusives/components/navbar';
-import Navbar from 'apps/next-music-exclusives/components/navbar';
 import './global.css';
-import Sidebar3 from 'apps/next-music-exclusives/components/sidebar3';
+import Sidebar3 from '../components/sidebar3';
 // import Sidebar from 'apps/next-music-exclusives/components/sidebar';
 
 export const metadata = {
@@ -21,7 +20,6 @@ export default function RootLayout({
       </head>
       <body className="flex gap-6">
         <Sidebar3 />
-        <Navbar />
         {children}
       </body>
     </html>
