@@ -31,6 +31,9 @@ module.exports = {
         'pulse-fast': 'pulse .75s cubic-bezier(0.4, 0, 0.6, 1)',
       },
       fontFamily: { poppins: 'Poppins' },
+      letterSpacing: {
+        title: '.5em',
+      },
     },
   },
   plugins: [],

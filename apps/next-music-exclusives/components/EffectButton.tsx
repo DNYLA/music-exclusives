@@ -8,6 +8,8 @@ interface EffectItemProps {
   hoverAnimation?: string;
   children: ReactNode;
 }
+
+// Animations are hard coded because for some reason using a paramter doesnt play any animations????
 const EffectItem = ({
   animation,
   baseAnimation,
@@ -15,7 +17,6 @@ const EffectItem = ({
   children,
 }: EffectItemProps) => {
   const [effect, setEffect] = useState(false);
-
   const handleAnimationEnd = (e: React.AnimationEvent<HTMLDivElement>) => {
     console.log(`Animationed ended ${e.animationName}`);
 
@@ -33,15 +34,20 @@ const EffectItem = ({
   };
 
   const handleClick = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
-    console.log(`Clicked`);
+    console.log(
+      `${effect && `animate-pulse-fast`} ${
+        !effect && hoverAnimation && `hover:animate-wiggle`
+      }`
+    );
+
     e.stopPropagation();
     setEffect(true);
   };
 
   return (
     <div
-      className={`${effect && `animate-${animation}`} ${
-        !effect && hoverAnimation && `hover:animate-${hoverAnimation}`
+      className={`${effect ? `animate-${animation} ` : ''}${
+        !effect && hoverAnimation ? `hover:animate-${hoverAnimation}` : ''
       }`}
       onClick={handleClick}
       onAnimationEnd={handleAnimationEnd}

@@ -29,6 +29,20 @@ const Sidebar3 = () => {
   const [active, setActive] = useState('Tickets');
 
   const [open, setOpen] = useState(true);
+  const [isPermOpen, setPermOpen] = useState(true);
+
+  // const handleMouseEnter = () => {
+  //   if (open === true) return;
+  //   if (!open) {
+  //     setPermOpen(false);
+  //     setOpen(true);
+  //   }
+  // };
+
+  // const handleMouseLeave = () => {
+  //   if (!open && !isPermOpen) setOpen(false);
+  // };
+
   return (
     <div
       className={`flex flex-col items-center h-screen ${
@@ -61,8 +75,8 @@ const Sidebar3 = () => {
                 item.margin && 'mt-5'
               } flex items-center  w-full h-12 px-3 mt-2 rounded ${
                 item.name === active
-                  ? 'bg-gray-700'
-                  : 'hover:bg-me-accent hover:text-gray-300'
+                  ? 'bg-gray-700 hover:bg-me-primary'
+                  : 'hover:bg-me-primary hover:text-gray-300'
               }`}
               onClick={() => setActive(item.name)}
             >

@@ -14,14 +14,11 @@ const SongCard = ({ title, artist, imageUrl }: SongCardProps) => {
   const [isPlaying, setIsPlaying] = useState(false);
   return (
     <div
-      className="relative p-4 w-full bg-me-secondary rounded-lg overflow-hidden shadow hover:shadow-md"
+      className="group relative p-4 w-full bg-me-secondary rounded-lg overflow-hidden shadow transition duration-300 ease-in-out hover:shadow-md hover:scale-105"
       style={{ minHeight: '160px' }}
     >
-      <div
-        className="cursor-pointer z-25"
-        onClick={() => setIsPlaying(!isPlaying)}
-      >
-        <div className="absolute top-0 right-0 mt-2 mr-2 p-4 z-35 flex justify-between">
+      <div className="cursor-pointer" onClick={() => setIsPlaying(!isPlaying)}>
+        <div className="absolute top-0 right-0 mt-2 mr-2 p-4 z-50 flex justify-between">
           <EffectItem animation={'pulse-fast'} hoverAnimation="wiggle">
             <div className="cursor-pointer inline-flex items-center justify-center w-8 h-8 p-2 rounded-full bg-white shadow-sm ">
               <svg
@@ -39,25 +36,27 @@ const SongCard = ({ title, artist, imageUrl }: SongCardProps) => {
             </div>
           </EffectItem>
         </div>
-
-        <div className="cursor-pointer absolute top-10 bottom-20 left-4 right-4 top-0 grid place-items-center">
+        <div className="cursor-pointer absolute top-10 bottom-20 left-4 right-4 top-0 grid place-items-center z-40">
           {isPlaying ? (
             <BiPause
               size={100}
-              className="hover:fill-me-primary duration-300 shadow-inner"
+              className="group-hover:fill-me-secondary duration-300 shadow-inner"
             />
           ) : (
             <BiPlay
               size={100}
-              className="hover:fill-me-primary duration-300 shadow-inner"
+              className="group-hover:fill-me-secondary duration-300 shadow-inner"
             />
           )}
         </div>
-        <img
-          className="object-cover w-full h-48"
-          src={imageUrl}
-          alt="Flower and sky"
-        />
+        <div className="relative z-1">
+          <img
+            className="object-cover w-full h-48 select-none"
+            src={imageUrl}
+            alt="Flower and sky"
+          />
+          <div className="absolute bottom-0 left-0 right-0 top-0 h-full w-full overflow-hidden bg-me-secondary bg-fixed opacity-0 transition duration-300 ease-in-out group-hover:opacity-25"></div>
+        </div>
       </div>
 
       <h2 className="mt-2 text-me-text text-sm font-semibold line-clamp-1">
